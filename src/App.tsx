@@ -1,14 +1,15 @@
 import "./App.css";
 import FileCom from "./components/FileCom";
-import FolderCom from "./components/FolderCom";
+import { fileTree } from "./data/fileTree";
 
 function App() {
   return (
     <>
       <div>
-        <FileCom fileName="index.ts" />
-        <FileCom fileName="index.ts" />
-        <FolderCom folderName="node_modules" />
+        {fileTree.children &&
+          fileTree.children.map((file, index) => (
+            <FileCom fileName={file.name} key={index} />
+          ))}
       </div>
     </>
   );
