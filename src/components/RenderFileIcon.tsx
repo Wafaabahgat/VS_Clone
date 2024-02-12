@@ -40,6 +40,7 @@ const RenderFileIcon = ({ name, isFolder, isOpen }: IProps) => {
     return <IconImg src="/public/icons/folder-default.svg" />;
   return <FileIcon />;
 
+
   // if (extension === "tsx") return <IconImg src="/public/icons/react_ts.svg" />;
   // if (extension === "html") return <IconImg src="/public/icons/html.svg" />;
   // if (extension === "jsx") return <IconImg src="/public/icons/react.svg" />;
