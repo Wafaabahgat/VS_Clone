@@ -1,7 +1,6 @@
 import RightArrowIcon from "./SVG/Right";
 import { IFile } from "../interfaces/index";
 import { useState } from "react";
-import FolderIcon from "./SVG/Folder";
 import BottomArrowIcon from "./SVG/Bottom";
 import RenderFileIcon from "./RenderFileIcon";
 
@@ -19,8 +18,8 @@ const RecursiveComponent = ({
         {isFolder ? (
           <div onClick={handleOpen} className="flex items-center">
             {isOpen ? <BottomArrowIcon /> : <RightArrowIcon />}
-            <FolderIcon />
-            {/* <RenderFileIcon name={name} /> */}
+            {/* <FolderIcon /> */}
+            <RenderFileIcon name={name} isFolder={isFolder} isOpen={isOpen} />
             <span>{name}</span>
           </div>
         ) : (
