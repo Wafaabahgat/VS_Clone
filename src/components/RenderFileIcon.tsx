@@ -1,5 +1,6 @@
 import IconImg from "./IconImg";
 import FileIcon from "./SVG/File";
+import { extensionIcon } from "./constant/Index";
 
 interface IProps {
   name: string;
@@ -7,18 +8,6 @@ interface IProps {
   isFolder?: boolean;
 }
 
-const extensionIcon: Record<string, string> = {
-  // file
-  tsx: "/public/icons/react_ts",
-  html: "public/icons/html",
-  jsx: "public/icons/react.svg",
-
-  // Folder
-  node_modules: "public/icons/folder-node",
-  public: "public/icons/folder-public",
-  src: "public/icons/folder-src",
-  components: "public/icons/folder-components",
-};
 
 const RenderFileIcon = ({ name, isFolder, isOpen }: IProps) => {
   const extension = name.split(".").pop();
