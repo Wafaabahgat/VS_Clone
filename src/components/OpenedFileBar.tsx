@@ -3,7 +3,9 @@ import { RootState } from "../app/store";
 import OpenedFileBarTab from "./OpenedFileBarTab";
 
 const OpenedFileBar = () => {
-  const { openedFiles } = useSelector((state: RootState) => state.tree);
+  const { openedFiles, clickedFile } = useSelector(
+    (state: RootState) => state.tree
+  );
 
   return (
     <div>
@@ -12,6 +14,7 @@ const OpenedFileBar = () => {
           <OpenedFileBarTab key={file.name} file={file} />
         ))}
       </div>
+      {clickedFile.fileContent}
     </div>
   );
 };

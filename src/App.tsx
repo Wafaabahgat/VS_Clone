@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <div className="flex h-screen">
-        <div className="w-64 border-r border-white">
+        <div className="w-64 border-r-2 border-[#ffffff1f] ">
           <RecursiveComponent fileTree={fileTree} />
         </div>
         <OpenedFileBar />

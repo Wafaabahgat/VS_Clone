@@ -1,24 +1,24 @@
- import { v4 as uuid } from "uuid";
+import { v4 as uuid } from "uuid";
 import { IFile } from "../interfaces";
 
 export const fileTree: IFile = {
-   id: uuid(),
+  id: uuid(),
   name: "VS Code Clone",
   isFolder: true,
   children: [
     {
-       id: uuid(),
+      id: uuid(),
       name: "node_modules",
       isFolder: true,
       children: [],
     },
     {
-       id: uuid(),
+      id: uuid(),
       name: "src",
       isFolder: true,
       children: [
         {
-           id: uuid(),
+          id: uuid(),
           name: "components",
           isFolder: true,
           children: [
@@ -38,13 +38,14 @@ export const fileTree: IFile = {
     },
     {
       name: "public",
-       id: uuid(),
+      id: uuid(),
       isFolder: true,
       children: [
         {
-           id: uuid(),
+          id: uuid(),
           name: "index.html",
           isFolder: false,
+          content: "hi everyone",
         },
       ],
     },
