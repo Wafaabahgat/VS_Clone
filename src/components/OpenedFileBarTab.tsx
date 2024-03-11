@@ -1,8 +1,12 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { IFile } from "../interfaces";
 import RenderFileIcon from "./RenderFileIcon";
 import CloseIcon from "./SVG/CloseIcon";
-import { setClickedFileAction } from "../app/featurres/fileTreeSlices";
+import {
+  setActiveTabIdAction,
+  setClickedFileAction,
+} from "../app/featurres/fileTreeSlices";
+import { RootState } from "../app/store";
 
 interface IProps {
   file: IFile;
@@ -10,15 +14,25 @@ interface IProps {
 
 const OpenedFileBarTab = ({ file }: IProps) => {
   const dispatch = useDispatch();
+  const { activeTabId } = useSelector((state: RootState) => state.tree);
 
   const onClick = () => {
-    const { name, content } = file;
+    const { id, name, content } = file;
     dispatch(setClickedFileAction({ fileName: name, fileContent: content }));
+    dispatch(setActiveTabIdAction(id));
   };
   return (
     <div
-      className="flex items-center p-2 border-[#ffffff1f] border-b-[1px] border-r-[1px]"
+      className={`flex items-center p-2 border-t-2  ${
+        file.id === activeTabId ? "border-[#cf6ccf]" : " border-transparent"
+      }`}
       onClick={onClick}
+      // style={{
+      //   borderTop:
+      //     file.id === activeTabId
+      //       ? "2px solid #cf6ccf"
+      //       : "2px solid transparent",
+      // }}
     >
       <RenderFileIcon name={file.name} />
       <span className="cursor-pointer flex justify-center duration-300 items-center w-fit mx-2 p-1 rounded-md">
